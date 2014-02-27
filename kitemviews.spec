@@ -1,12 +1,12 @@
-%define major 5
+%define major 4
 %define libname %mklibname KF5ItemViews %{major}
 %define devname %mklibname KF5ItemViews -d
 %define debug_package %{nil}
 
 Name: kitemviews
-Version: 4.95.0
-Release: 2
-Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/4.95.0/%{name}-%{version}.tar.xz
+Version: 4.96.0
+Release: 1
+Source0: http://ftp5.gwdg.de/pub/linux/kde/unstable/frameworks/%{version}/%{name}-%{version}.tar.xz
 Summary: The KDE Frameworks 5 item view library
 URL: http://kde.org/
 License: GPL
@@ -62,6 +62,8 @@ selectable items, recursive filtering and breadcrumb selection.
 
 %install
 %makeinstall_std -C build
+mkdir -p %{buildroot}%{_libdir}/qt5
+mv %{buildroot}%{_prefix}/mkspecs %{buildroot}%{_libdir}/qt5
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}*
@@ -70,3 +72,4 @@ selectable items, recursive filtering and breadcrumb selection.
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/cmake/KF5ItemViews
+%{_libdir}/qt5/mkspecs/modules/*
