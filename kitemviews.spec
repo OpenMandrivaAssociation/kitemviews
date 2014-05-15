@@ -15,8 +15,11 @@ BuildRequires: cmake
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: qmake5
 BuildRequires: extra-cmake-modules5
+# Required by cmake detection scripts
+BuildRequires: qt5-platformtheme-gtk2
 Requires: %{libname} = %{EVRD}
 
 %description
